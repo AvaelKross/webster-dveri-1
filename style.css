@@ -61,6 +61,10 @@ input {
   line-height: 12px;
 }
 
+input[type='button'] {
+  cursor: pointer;
+}
+
 .button {
   font-size: 16px;
 }
@@ -292,7 +296,7 @@ input {
   height: 220px;
 }
 
-.door img {
+.mini-door-img {
   height: 210px;
   width: 98px;
   float: left;
@@ -556,7 +560,6 @@ input {
 /* POPUPS */
 
 .popup{
-  display:none;
   z-index:99999;
   position:fixed;
   top:0px;
@@ -574,8 +577,18 @@ input {
   content: '';
 }
 
+.popup .block{
+  z-index:999999;
+  color:#000;
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  vertical-align: middle;
+  box-shadow: 0px 0px 5px rgba(0,0,0,1); 
+}
+
 .closer{
-  background-color:rgba(0,0,0,0.8);
+  background-color:rgba(0,0,0,0.7);
   position:fixed;
   top:0px;
   left:0px;
@@ -583,3 +596,74 @@ input {
   height:100%;
 }
 
+.politics {
+  padding: 20px;
+  width: 800px;
+  overflow: scroll;
+  text-align: left;
+}
+
+.lead-popup {
+  width: 220px;
+  padding: 30px;
+}
+
+.default-door {
+  text-align: left;
+  width: 740px;
+  height: 470px;
+  padding: 30px;
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.paint-door {
+  text-align: left;
+  width: 740px;
+  height: 470px;
+  padding: 30px;
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.door-cover-img {
+  max-width: 175px;
+  max-height: 370px;
+  margin-bottom: 10px;
+}
+
+.door-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.colors {
+  margin-top: 3px;
+}
+
+.colors .color {
+  width: 90px;
+  font-size: 12px;
+  text-align: center;
+  float: left;
+}
+
+.colors .color img{
+  width: 87px;
+  height: 87px;
+  margin: 0px auto;
+  margin-bottom: 3px;
+}
+
+.door-form {
+  text-align: center;
+  background-color: #575757;
+  height: 244px;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.door-form input {
+  font-size: 17px;
+  font-weight: 700;
+}

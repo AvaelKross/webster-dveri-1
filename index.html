@@ -78,7 +78,7 @@
             <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
             <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
 
-            <div class="politic">Политика конфидециальности</div>
+            <div class="politic" ng-click="openPolitics()">Политика конфидециальности</div>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@
       </ul>
       <ul class="doors">
         <li class="door" ng-repeat="door in doors[selectedType]">
-          <img ng-src="images/doors/{{door.cover_img}}" />
+          <div style="background: url('images/mini-dveri.jpg') no-repeat;" ng-style="{'background-position': door.position}" class="mini-door-img"></div>
           <div class="info">
             {{door.type}}<br>
             {{door.brand}}<br>
@@ -156,8 +156,8 @@
             Цена с комплектом: {{door.price_set}} р.
           </div>
           <div class="buttons">
-            <input type="button" class="button button-orange" value="Купить в один клик">
-            <input type="button" class="button button-grey" value="Подробнее">
+            <input type="button" class="button button-orange" value="Купить в один клик" ng-click="openInOneClick(door)">
+            <input type="button" class="button button-grey" value="Подробнее" ng-click="openDoorPopup(door)">
           </div>
         </li>
       </ul>
@@ -207,7 +207,7 @@
           </div>
           <div class="ad-text">
             <div ng-bind-html="showHtml(review.ad.text)" class="review-ad-text"></div>
-            <input type="button" class="button button-yellow" value="Хочу так же!">
+            <input type="button" class="button button-yellow" value="Хочу так же!" ng-click="openLeadPopup('кто-то хочет так же, как и '+review.pic.descr)">
           </div>
         </div>
       </div>
@@ -232,7 +232,7 @@
             <li>Эксперементируйте - напрмер, стеклянные двери визуально увеличат простарнство.</li>
           </ul>
         </div>
-        <input type="button" class="button button-green" value="Заказать консультацию дизайнера">
+        <input type="button" class="button button-green" value="Заказать консультацию дизайнера" ng-click="openLeadPopup('консультация дизайнера')">
       </div>
       <div class="advice">
         <div class="advice-photo">
@@ -247,7 +247,7 @@
             <li>Эксперементируйте - напрмер, стеклянные двери визуально увеличат простарнство.</li>
           </ul>
         </div>
-        <input type="button" class="button button-green" value="Заказать консультацию дизайнера">
+        <input type="button" class="button button-green" value="Заказать консультацию дизайнера" ng-click="openLeadPopup('консультация дизайнера')">
       </div>
     </div>
     <div class="clear" style="clear: both;"></div>
@@ -276,7 +276,7 @@
         <br>
         <b>Телефон:</b> <u>+7(343)123-123-1</u><br>
         <b>E-mail:</b> надо какой-то мейл
-        <input type="button" value="ЗАКАЗАТЬ ЗВОНОК" class="button">
+        <input type="button" value="ЗАКАЗАТЬ ЗВОНОК" class="button" ng-click="openLeadPopup('заказать звонок')">
       </div>
     </div>
   </div>
@@ -300,11 +300,159 @@
     </div>
   </div>
 
-  <div class="popup" id="door-default">
-    <div class="block">
-      {{selectedDoor.brand}}
+  <div class="popup" id="door-default" ng-show="showDefaultDoorPopup">
+    <div class="block default-door">
+      <div class="door-title">{{selectedDoor.type}} {{selectedDoor.brand}}, {{selectedDoor.model}}, цвет {{colors[selectedDoor.color].name}}</div>
+      <div class="columns">
+        <div class="column" style="width: 200px">
+          <img ng-src="images/doors/{{selectedDoor.selected_cover_img}}" class="door-cover-img" />
+          <div style="font-size: 14px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
+          Цена с монтажом: {{selectedDoor.price_mon}} р.</div>
+        </div>
+        <div class="column info" style="width: 292px; height: 250px; padding-right: 10px;">
+          Производитель: «{{selectedDoor.brand}}», {{selectedDoor.brand_city}}<br>
+          <br>
+          <span ng-if="selectedDoor.filling">
+            Заполнение: {{selectedDoor.filling}}<br>
+            <br>
+          </span>
+          <span ng-if="selectedDoor.cover">
+            Покрытие: {{selectedDoor.cover}}<br>
+            <br>
+          </span>
+          Размеры полотна: 
+            <span ng-if="selectedDoor.sizes_width == 'любые'">любые</span>
+            <span ng-if="selectedDoor.sizes_width != 'любые'">
+              <br>
+              ширина: {{selectedDoor.sizes_width}}<br>
+              высота: {{selectedDoor.sizes_height}}
+            </span>
+          <br><br>
+          Комплектующие: {{selectedDoor.set}}<br><br>
+        </div>
+        <div class="column" style="width: 235px; height: 250px;">
+          <div class="door-form">
+            Узнайте о наличии этой модели<br>на складе<br>в нужной Вам расцветке
+            <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
+            <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
+            <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!"></input>
+          </div>
+        </div>
+        <div class="column" style="height: 133px; width: 540px">
+          Варианты расцветок<span ng-if="selectedType=='glass'"> стекла</span>:
+          <div class="colors">
+            <div class="color" ng-repeat="color in selectedDoor.colors">
+              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" />
+              <span>{{colors[color.key].name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="closer">
+    <div class="closer" ng-click="closeAllPopups()">
+    </div>
+  </div>
+
+  <div class="popup" id="door-default" ng-show="showPaintDoorPopup">
+    <div class="block paint-door">
+      <div class="door-title">{{selectedDoor.type}} {{selectedDoor.brand}}, {{selectedDoor.model}}
+      <span ng-if="selectedDoor.color">, цвет {{colors[selectedDoor.color].name}}</span></div>
+      <div class="columns">
+        <div class="column" style="width: 200px">
+          <img ng-src="images/doors/{{selectedDoor.selected_cover_img}}" class="door-cover-img" />
+          <div style="font-size: 14px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
+          Цена с монтажом: {{selectedDoor.price_mon}} р.</div>
+        </div>
+        <div class="column info" style="width: 292px; height: 250px; padding-right: 10px;">
+          Производитель: «{{selectedDoor.brand}}», {{selectedDoor.brand_city}}<br>
+          <br>
+          <span ng-if="selectedDoor.filling">
+            Заполнение: {{selectedDoor.filling}}<br>
+            <br>
+          </span>
+          <span ng-if="selectedDoor.cover">
+            Покрытие: {{selectedDoor.cover}}<br>
+            <br>
+          </span>
+          Размеры полотна: 
+            <span ng-if="selectedDoor.sizes_width == 'любые'">любые</span>
+            <span ng-if="selectedDoor.sizes_width != 'любые'">
+              <br>
+              ширина: {{selectedDoor.sizes_width}}<br>
+              высота: {{selectedDoor.sizes_height}}
+            </span>
+          <br><br>
+          Комплектующие: {{selectedDoor.set}}<br><br>
+        </div>
+        <div class="column" style="width: 235px; height: 250px;">
+          <div class="door-form">
+            Узнайте о наличии этой модели<br>на складе<br>в нужной Вам расцветке
+            <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
+            <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
+            <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!"></input>
+          </div>
+        </div>
+        <div class="column" style="height: 133px; width: 540px">
+          Варианты расцветок:<br>
+          {{selectedDoor.paint}}
+          <div class="colors" ng-if="selectedDoor.colors.length > 0">
+            <div class="color" ng-repeat="color in selectedDoor.colors">
+              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" />
+              <span>{{colors[color.key].name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="closer" ng-click="closeAllPopups()">
+    </div>
+  </div>
+
+  <div class="popup" id="door-default" ng-show="showLeadPopup">
+    <div class="block lead-popup">
+      Отправьте заявку на<br>бесплатный вызов<br>замерщика
+      <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
+      <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
+      <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
+      <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
+    </div>
+    <div class="closer" ng-click="closeAllPopups()">
+    </div>
+  </div>
+
+  <div class="popup" id="door-default" ng-show="showInOneClick">
+    <div class="block lead-popup">
+      Вы выбрали дверь "{{selectedDoor.model}}!"
+      <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
+      <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
+      <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
+      <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
+    </div>
+    <div class="closer" ng-click="closeAllPopups()">
+    </div>
+  </div>
+
+  <div class="popup" ng-show="showPolitics">
+    <div class="block politics">
+      Данное соглашение об обработке персональных данных разработано в соответствии с законодательством Российской Федерации.
+      <br><br>
+      Все лица заполнившие сведения, составляющие персональные данные на данном сайте, а также разместившие иную информацию обозначенными действиями подтверждают свое согласие на обработку персональных данных и их передачу оператору обработки персональных данных.
+      <br><br>
+      Под персональными данными Гражданина понимается нижеуказанная информация:
+      <br><br>
+      общая информация (Имя и адрес электронной почты, телефон); посетители сайта направляют свои персональные данные для получения доступа к бесплатным видеоматериалам и/или платным услугам в сфере интернет маркетинга и рекламы.
+      <br><br>
+      Гражданин, принимая настоящее Соглашение, выражают свою заинтересованность и полное согласие, что обработка их персональных данных может включать в себя следующие действия: сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, уничтожение.
+      <br><br>
+      Гражданин гарантирует: информация, им предоставленная, является полной, точной и достоверной; при предоставлении информации не нарушается действующее законодательство Российской Федерации, законные права и интересы третьих лиц; вся предоставленная информация заполнена Гражданина в отношении себя лично.
+      <br><br>
+      ООО «Альдеза»
+      <br><br>
+      ОГРН: 1116671008651
+    </div>
+    <div class="closer" ng-click="closeAllPopups()">
     </div>
   </div>
 
