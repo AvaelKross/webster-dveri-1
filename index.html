@@ -87,7 +87,7 @@
 
   <div id="procs">
     <div class="wrapper columns">
-      <div class="column" style="width:400px">
+      <div class="column" style="width:360px; padding-left:40px">
         <div class="proc">
           <div class="proc-pic" style="background-position:0px 0px;"></div>
           <span class="proc-text">2 шоу-рума<br>в центре города</span>
@@ -97,10 +97,10 @@
           <span class="proc-text">Продукция с европейскими<br>сертификатами качества</span>
         </div>
       </div>
-      <div class="column" style="width:200px; height: 275px;">
+      <div class="column" style="width: 180px; padding-left:20px; height: 275px;">
         <img src="images/logo-mini.png" style="margin-top: 70px;" />
       </div>
-      <div class="column" style="width:400px">
+      <div class="column" style="width:380px; padding-left:20px;">
         <div class="proc">
           <div class="proc-pic" style="background-position:-100px 0px;"></div>
           <span class="proc-text">Профессиональные<br>бригады монтажников</span>
@@ -141,7 +141,7 @@
       </ul>
       <ul class="doors">
         <li class="door" ng-repeat="door in doors[selectedType]">
-          <div style="background: url('images/mini-dveri.jpg') no-repeat;" ng-style="{'background-position': door.position}" class="mini-door-img"></div>
+          <div style="background: url('images/mini-dveri.jpg') no-repeat;" ng-style="{'background-position': door.position, 'cursor':'pointer'}" class="mini-door-img" ng-click="openDoorPopup(door)"></div>
           <div class="info">
             {{door.type}}<br>
             {{door.brand}}<br>
