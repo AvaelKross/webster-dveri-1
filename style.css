@@ -156,6 +156,14 @@ input[type='button'] {
   text-decoration: underline;
 }
 
+#menu li a:visited, #menu li a {
+  color: #000;
+}
+
+#menu li a:active, #menu li a:hover {
+  color: #b93c32;
+}
+
 .menu-phone {
   font-weight: 700;
 }
