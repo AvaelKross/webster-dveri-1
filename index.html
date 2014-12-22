@@ -58,7 +58,7 @@
           Мы являемся официальными дилерами фабрик «Краснодеревщик», г. Челябинск, «Свобода», г. Рыбинск, «Вива-Порте», г. Светлый, «Акма», г. Санкт-Петербург.
         </div>
         <div class="bigger">
-          Продаем двери на 15% дешевле аналогов!
+          Поэтому мы продаём двери на 15% дешевле аналогов!
         </div>
       </div>
 
@@ -66,8 +66,8 @@
         <div class="left-column cloudy">
           <ul>
             <li>Подберем для Вас лучшие двери</li>
-            <li>Установим новые двери за 4 часа</li>
-            <li>Дадим гарантию на двери и на монтаж до 5 лет!</li>
+            <li>Произведём установку за 4 часа</li>
+            <li>Дадим гарантию на полотно и монтаж до 5 лет!</li>
           </ul>
         </div>
         <div class="right-column cloudy">
@@ -76,7 +76,7 @@
             <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
             <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
             <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-            <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА" ng-click="sendData()"></input>
 
             <div class="politic" ng-click="openPolitics()">Политика конфидециальности</div>
           </div>
@@ -100,14 +100,14 @@
       <div class="column" style="width: 180px; padding-left:20px; height: 275px;">
         <img src="images/logo-mini.png" style="margin-top: 70px;" />
       </div>
-      <div class="column" style="width:380px; padding-left:20px;">
+      <div class="column" style="width:330px; padding-right:30px;">
         <div class="proc">
-          <div class="proc-pic" style="background-position:-100px 0px;"></div>
+          <div class="proc-pic right" style="background-position:-100px 0px;"></div>
           <span class="proc-text">Профессиональные<br>бригады монтажников</span>
         </div>
         <div class="proc">
-          <div class="proc-pic" style="background-position:-100px -100px;"></div>
-          <span class="proc-text">Х 000 дверей<br>в наличии на складе</span>
+          <div class="proc-pic right" style="background-position:-100px -100px;"></div>
+          <span class="proc-text">2 000 дверей<br>в наличии на складе</span>
         </div>
       </div>
 
@@ -307,7 +307,7 @@
         <div class="column" style="width: 200px">
           <img ng-src="images/doors/{{selectedDoor.selected_cover_img}}" class="door-cover-img" />
           <div style="font-size: 14px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
-          Цена с монтажом: {{selectedDoor.price_mon}} р.</div>
+          Цена с монтажом: <!--{{selectedDoor.price_mont}}-->{{makeMontPrice(selectedDoor)}} р.</div>
         </div>
         <div class="column info" style="width: 292px; height: 250px; padding-right: 10px;">
           Производитель: «{{selectedDoor.brand}}», {{selectedDoor.brand_city}}<br>
@@ -362,7 +362,7 @@
         <div class="column" style="width: 200px">
           <img ng-src="images/doors/{{selectedDoor.selected_cover_img}}" class="door-cover-img" />
           <div style="font-size: 14px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
-          Цена с монтажом: {{selectedDoor.price_mon}} р.</div>
+          Цена с монтажом: {{selectedDoor.price_mont}} р.</div>
         </div>
         <div class="column info" style="width: 292px; height: 250px; padding-right: 10px;">
           Производитель: «{{selectedDoor.brand}}», {{selectedDoor.brand_city}}<br>
@@ -412,11 +412,11 @@
 
   <div class="popup" id="door-default" ng-show="showLeadPopup">
     <div class="block lead-popup">
-      Отправьте заявку на<br>бесплатный вызов<br>замерщика
+      <span ng-bind-html="showHtml(leadPopupText)"></span>
       <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
       <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
       <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-      <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
+      <input type="button" id="main-name" class="button button-yellow" value="{{leadPopupButtonText}}"></input>
     </div>
     <div class="closer" ng-click="closeAllPopups()">
     </div>
@@ -429,6 +429,14 @@
       <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
       <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
       <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
+    </div>
+    <div class="closer" ng-click="closeAllPopups()">
+    </div>
+  </div>
+
+  <div class="popup" id="door-default" ng-show="showThanks">
+    <div class="block lead-popup">
+      Спасибо! Ожидайте звонка.
     </div>
     <div class="closer" ng-click="closeAllPopups()">
     </div>
@@ -448,9 +456,11 @@
       <br><br>
       Гражданин гарантирует: информация, им предоставленная, является полной, точной и достоверной; при предоставлении информации не нарушается действующее законодательство Российской Федерации, законные права и интересы третьих лиц; вся предоставленная информация заполнена Гражданина в отношении себя лично.
       <br><br>
-      ООО «Альдеза»
-      <br><br>
-      ОГРН: 1116671008651
+      ООО «Альдеза»<br><br>
+      ОГРН: 1116671008651<br>
+      ИНН: 6671356447<br>
+      КПП: 667101001<br>
+      Адрес: 620075, г. Екатеринбург, ул. Луначарского, 171
     </div>
     <div class="closer" ng-click="closeAllPopups()">
     </div>

@@ -69,6 +69,10 @@ input[type='button'] {
   font-size: 16px;
 }
 
+.button:focus {
+  outline:0;
+}
+
 .button-yellow {
   background-color: #ffc80a;
 }
@@ -115,6 +119,10 @@ input[type='button'] {
 
 .button-green:active {
   background-color: #a2d13e;
+}
+
+.right {
+  float: right !important;
 }
 
 .wrapper {
@@ -164,13 +172,12 @@ input[type='button'] {
 
 .addresses {
   float: right;
-  width:200px;
+  width: 180px;
   font-size: 18px;
   margin-right: 20px;
 }
 
 .address {
-  float: right;
   background: url('images/pin.png') no-repeat;
   padding-left: 20px;
   margin-bottom: 5px;
@@ -209,7 +216,7 @@ input[type='button'] {
 
 #main li {
   display: list-item;
-  font-size: 25px;
+  font-size: 22px;
   background: url('images/checkbox.png') no-repeat;
   background-position: 0px 3px;
   padding-left: 35px;
@@ -647,6 +654,7 @@ input[type='button'] {
 
 .politics {
   padding: 20px;
+  height: 530px;
   width: 800px;
   overflow: scroll;
   text-align: left;
@@ -655,6 +663,7 @@ input[type='button'] {
 .lead-popup {
   width: 220px;
   padding: 30px;
+  padding-top: 20px;
 }
 
 .default-door {

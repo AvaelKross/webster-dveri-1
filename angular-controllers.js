@@ -17,6 +17,7 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
   $scope.showLeadPopup = false;
   $scope.showPolitics = false;
   $scope.showInOneClick = false;
+  $scope.showThanks = false;
 
   $scope.currentWhere = "";
 
@@ -181,9 +182,13 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
     return $sce.trustAsHtml(html);
   }
 
-  $scope.openLeadPopup = function(where){
-    $scope.showLeadPopup = true;
+  $scope.openLeadPopup = function(where, text, button_text){
+    if (text==undefined) {text = "Мы перезвоним Вам<br>в ближайшее время"};
+    if (button_text==undefined) {button_text="Заказать звонок"};
+    $scope.leadPopupText = text;
+    $scope.leadPopupButtonText = button_text;
     $scope.currentWhere = where;
+    $scope.showLeadPopup = true;
   }
 
   $scope.openDoorPopup = function(door){
@@ -197,7 +202,7 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
   }
 
   $scope.changeColor = function(color){
-    if ($scope.selectedType != "glass") 
+    if (color.pic_url!='') 
       $scope.selectedDoor.selected_cover_img = color.pic_url;
   }
 
@@ -216,6 +221,23 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
     $scope.showLeadPopup = false;
     $scope.showPolitics = false;
     $scope.showInOneClick = false;
+    $scope.showThanks = false;
+  }
+
+  $scope.makeMontPrice = function(door){
+    if (door.price_set){
+    num = door.price_set.replace(/\s+/g, '');
+      num = parseInt(num) + 2300;
+    }else{
+      num = 0;
+    }
+    num = num.toString();
+    num = num.replace(/(\d)(?=(\d{3})+$)/g, '$1 ');
+    return num;
+  }
+
+  $scope.sendData = function(){
+    $scope.showThanks = true;
   }
 
 });
