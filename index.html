@@ -147,8 +147,8 @@
             {{door.brand}}<br>
             {{door.model}}<br>
             <br>
-            Цвет: {{colors[door.color].name}}<br>
-            Покрытие: {{door.cover}}<br>
+            <span ng-if="door.color">Цвет: {{colors[door.color].name}}<br></span>
+            <span ng-if="door.cover">Покрытие: {{door.cover}}<br></span>
             <br>
             Размеры полотна: {{door.sizes_width}}<br>
             <br>
@@ -343,7 +343,7 @@
           Варианты расцветок<span ng-if="selectedType=='glass'"> стекла</span>:
           <div class="colors">
             <div class="color" ng-repeat="color in selectedDoor.colors">
-              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" />
+              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" ng-style="{'cursor': color.pic_url=='' ? 'defaut' : 'pointer'}" />
               <span>{{colors[color.key].name}}</span>
             </div>
           </div>
@@ -399,7 +399,7 @@
           {{selectedDoor.paint}}
           <div class="colors" ng-if="selectedDoor.colors.length > 0">
             <div class="color" ng-repeat="color in selectedDoor.colors">
-              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" />
+              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" ng-style="{'cursor': color.pic_url=='' ? 'defaut' : 'pointer'}" />
               <span>{{colors[color.key].name}}</span>
             </div>
           </div>
