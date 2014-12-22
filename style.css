@@ -73,7 +73,23 @@ input[type='button'] {
   background-color: #ffc80a;
 }
 
+.button-yellow:hover {
+  background-color: #ffb808;
+}
+
+.button-yellow:active {
+  background-color: #ffc80a;
+}
+
 .button-orange {
+  background-color: #ff7353;
+}
+
+.button-orange:hover {
+  background-color: #ff6343;
+}
+
+.button-orange:active {
   background-color: #ff7353;
 }
 
@@ -81,7 +97,23 @@ input[type='button'] {
   background-color: #bcbcbc;
 }
 
+.button-grey:hover {
+  background-color: #b0b0b0;
+}
+
+.button-grey:active {
+  background-color: #bcbcbc;
+}
+
 .button-green {
+  background-color: #a2d13e;
+}
+
+.button-green:hover {
+  background-color: #92c12e;
+}
+
+.button-green:active {
   background-color: #a2d13e;
 }
 
@@ -560,6 +592,14 @@ input[type='button'] {
   height: 45px;
   margin-top: 25px;
   margin-left: -5px;
+}
+
+.map-info input:hover {
+  background-color: #d6082a;
+}
+
+.map-info input:active {
+  background-color: #e6183a;
 }
 
 #header.footer {
