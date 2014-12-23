@@ -5,6 +5,11 @@ head,body{
   width:100%;
   font-family: 'Helvetica Neue';
   font-weight: 300;
+
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 
 ul {
@@ -35,30 +40,30 @@ input {
 ::-webkit-input-placeholder { /* WebKit browsers */
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  color: #b4b4b4;
+  color: #a4a4a4;
   font-size: 16px;
-  line-height: 12px;
+  line-height: 15px;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  color: #b4b4b4;
+  color: #a4a4a4;
   font-size: 16px;
-  line-height: 12px;
+  line-height: 15px;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  color: #b4b4b4;
+  color: #a4a4a4;
   font-size: 16px;
-  line-height: 12px;
+  line-height: 15px;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  color: #b4b4b4;
+  color: #a4a4a4;
   font-size: 16px;
-  line-height: 12px;
+  line-height: 15px;
 }
 
 input[type='button'] {
@@ -221,10 +226,11 @@ input[type='button'] {
   background-position: 0px 3px;
   padding-left: 35px;
   margin-left: 20px;
+  line-height: 26px;
 }
 
 .kp {
-  padding-top: 15px;
+  padding-top: 20px;
   color: #b93c32;
   font-weight: 700;
   font-size: 28px;
@@ -236,7 +242,7 @@ input[type='button'] {
   font-size: 13px;
   height: 55px;
   margin-top: 7px;
-  padding-top: 12px;
+  padding-top: 15px;
   text-align: left;
   padding-left: 20px;
 }
@@ -323,6 +329,7 @@ input[type='button'] {
   width: 185px;
   background-color: #d2d2d2;
   padding: 5px 15px;
+  padding-top: 8px;
   border-radius: 3px;
   margin-right: 5px;
   text-align: center;
@@ -511,6 +518,7 @@ input[type='button'] {
 
 .advice-comment {
   font-size: 13px;
+  margin-top: 5px;
 }
 
 .advice-face {
@@ -586,7 +594,7 @@ input[type='button'] {
   background-color: #fff;
   height: 290px;
   float: right;
-  margin-top: -5px;
+  margin-top: -3px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
 }
 
