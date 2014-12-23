@@ -172,7 +172,7 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
     }
   ]
 
-  $scope.map = { center: { latitude: 56.834806, longitude: 60.623017 }, zoom: 16, options: { scrollwheel: false } };
+  $scope.map = { center: { latitude: 56.8212112, longitude: 60.6353681 }, zoom: 13, options: { scrollwheel: false } };
 
   $scope.changeType = function(type){
     $scope.selectedType = type;

@@ -223,16 +223,13 @@ input[type='button'] {
   margin-left: 20px;
 }
 
-.kp, .under-kp {
-  text-align: center;
-}
-
 .kp {
   padding-top: 15px;
   color: #b93c32;
   font-weight: 700;
   font-size: 28px;
   height: 52px;
+  text-align: center;
 }
 
 .under-kp {
@@ -240,12 +237,13 @@ input[type='button'] {
   height: 55px;
   margin-top: 7px;
   padding-top: 12px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .under-kp .bigger {
   font-size: 24px;
   text-align: left;
-  padding-left: 19px;
   color: #b93c32;
 }
 

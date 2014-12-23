@@ -11,7 +11,6 @@
   <script src="lib/lodash.min.js"></script>
   <script src="lib/angular-google-maps.min.js"></script>
   <script src="angular-controllers.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,500italic&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
   <script src="script.js"></script>
 </head>
 <body ng-controller="MainCtrl">
@@ -152,7 +151,7 @@
             <br>
             Размеры полотна: {{door.sizes_width}}<br>
             <br>
-            Цена полотна: {{door.price_pol}} р.<br>
+            <span ng-if="door.price_pol">Цена полотна: {{door.price_pol}} р.<br></span>
             Цена с комплектом: {{door.price_set}} р.
           </div>
           <div class="buttons">
@@ -240,11 +239,11 @@
           <div class="advice-comment">Татаринов Владимир,<br>руководитель службы монтажа</div>
         </div>
         <div class="advice-text">
-          <div class="advice-title">Советы по выбору дверей</div>
+          <div class="advice-title">Советы по монтажу</div>
           <ul>
-            <li>Подбирайте двери уже после того, как определитесь с мебелью.</li>
-            <li>Не пугайтесь контрастов - светлые двери в темном интерьере станут его изюминкой.</li>
-            <li>Эксперементируйте - напрмер, стеклянные двери визуально увеличат простарнство.</li>
+            <li>Производите монтаж дверей в последнюю очередь.</li>
+            <li>Позаботьтесь о размерах проёма до начала чистовой отделки помещения.</li>
+            <li>Универсальная высота проёма – 2,08м, при такой высоте дверная коробка всегда перекроется наличником.</li>
           </ul>
         </div>
         <input type="button" class="button button-green" value="Заказать консультацию дизайнера" ng-click="openLeadPopup('консультация дизайнера')">
@@ -258,6 +257,12 @@
       <ui-gmap-marker
         idKey=0
         coords='{ latitude: 56.834806, longitude: 60.623017 }'
+        options="{labelContent: 'Краснодеревщик,<br>Салон Дверей', labelClass: 'label'}"
+        >
+      </ui-gmap-marker>
+      <ui-gmap-marker
+        idKey=0
+        coords='{ latitude: 56.802512, longitude: 60.628845 }'
         options="{labelContent: 'Краснодеревщик,<br>Салон Дверей', labelClass: 'label'}"
         >
       </ui-gmap-marker>
