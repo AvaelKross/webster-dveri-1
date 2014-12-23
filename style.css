@@ -211,6 +211,7 @@ input[type='button'] {
 #main {
   height: 685px;
   background: url('images/bg-main.jpg') no-repeat;
+  background-color: #eeebe4;
   background-position: center;
   border-bottom: 2px solid #453122;
 }
@@ -368,8 +369,8 @@ input[type='button'] {
 
 #discount {
   height: 365px;
-  background-color: #000;
   background: url('images/bg-discount.jpg') no-repeat;
+  background-color: #121214;
   background-position: center;
   color: #fff;
   font-size: 25px;
