@@ -204,7 +204,8 @@ input[type='button'] {
 }
 
 .menu-phone {
-  
+  font-weight: 700;
+  font-size: 19px !important;
 }
 
 #main {
