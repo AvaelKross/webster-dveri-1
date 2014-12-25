@@ -15,7 +15,7 @@
   <script src="angular-controllers.js"></script>
   <script src="script.js"></script>
 </head>
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl" scroll>
   
   <div id="header">
     <div class="wrapper">
@@ -36,13 +36,15 @@
     </div>
   </div>
   
-  <div id="menu">
+  <div id="somethinglikemenu" ng-show="fixedMenu"></div>
+
+  <div id="menu" ng-class="{fixed:fixedMenu}">
     <div class="wrapper">
       <ul class="menu">
-        <li><a href="#catalog">Каталог дверей</a></li>
-        <li><a href="#discount">Акции месяца</a></li>
-        <li><a href="#reviews">Отзывы клиентов</a></li>
-        <li><a href="#advices">Советы экспертов</a></li>
+        <li><a href="#catalog-anchor">Каталог дверей</a></li>
+        <li><a href="#discount-anchor">Акции месяца</a></li>
+        <li><a href="#reviews-anchor">Отзывы клиентов</a></li>
+        <li><a href="#advices-anchor">Советы экспертов</a></li>
         <li class="menu-phone"><a href="tel: +73431231231">+7 (343) 123-123-1</a></li>
     </div>
   </div>
@@ -135,6 +137,7 @@
     </div>
   </div>
 
+  <div id="catalog-anchor" style="position:relative; margin-top:-35px; height:35px"></div>
   <div id="catalog">
     <div class="wrapper">
       <ul class="select-type">
@@ -165,6 +168,7 @@
     </div>
   </div>
 
+  <div id="discount-anchor" style="position:relative; margin-top:-35px; height:35px"></div>
   <div id="discount">
     <div class="wrapper">
       <div class="discount-title">ТОЛЬКО В ДЕКАБРЕ</div>
@@ -190,6 +194,7 @@
     </div>
   </div>
 
+  <div id="reviews-anchor" style="position:relative; margin-top:-35px; height:35px"></div>
   <div id="reviews">
     <div class="wrapper">
       <div class="title">Вот, что о нас говорят клиенты</div>
@@ -217,6 +222,8 @@
     <div class="clear" style="clear: both;"></div>
   </div>
 
+
+  <div id="advices-anchor" style="position:relative; margin-top:-15px; height:15px"></div>
   <div id="advices">
     <div class="wrapper">
       <div class="title">Советы по выбору и монтажу дверей от наших экспертов</div>

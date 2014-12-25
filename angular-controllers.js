@@ -11,6 +11,19 @@ dveri.config(function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({enabled: true,requireBase: false});
 });
 
+dveri.directive("scroll", function ($window) {
+  return function(scope, element, attrs) {
+    angular.element($window).bind("scroll", function() {
+       if (this.pageYOffset >= 75) {
+         scope.fixedMenu = true;
+       } else {
+         scope.fixedMenu = false;
+       }
+      scope.$apply();
+    });
+  };
+});
+
 dveri.controller('MainCtrl', function ($scope, $sce, $location, $http) {
   $scope.selectedType = "shpon";
   $scope.selectedDoor = {name: ""};
