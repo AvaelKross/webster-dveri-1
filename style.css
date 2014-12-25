@@ -483,6 +483,7 @@ input[type='button'] {
   width: 95px;
   height: 62px;
   margin-bottom: 22px;
+  cursor: pointer;
 }
 
 .review input {

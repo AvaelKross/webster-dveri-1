@@ -208,7 +208,7 @@
           <div class="ad-pics">
             <img ng-src="images/интерьеры/{{review.ad.cover_pic}}" class="cover-pic" />
             <div class="small-pics">
-              <img ng-src="images/интерьеры/{{small_pic}}" ng-repeat="small_pic in review.ad.pics" />
+              <img ng-src="images/интерьеры/{{small_pic}}" ng-repeat="small_pic in review.ad.pics" ng-click="review.ad.cover_pic = small_pic"/>
             </div>
           </div>
           <div class="ad-text">
