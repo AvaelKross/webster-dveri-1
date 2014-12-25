@@ -1,4 +1,4 @@
-var dveri = angular.module('dveri', ['uiGmapgoogle-maps']);
+var dveri = angular.module('dveri', ['uiGmapgoogle-maps', 'ngRoute']);
 
 dveri.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
@@ -7,10 +7,16 @@ dveri.config(function(uiGmapGoogleMapApiProvider) {
         libraries: 'geometry,visualization'
     });
 })
+dveri.config(function($routeProvider, $locationProvider) {
+  $locationProvider.html5Mode({enabled: true,requireBase: false});
+});
 
-dveri.controller('MainCtrl', function ($scope, $sce) {
+dveri.controller('MainCtrl', function ($scope, $sce, $location, $http) {
   $scope.selectedType = "shpon";
-  $scope.selectedDoor = {};
+  $scope.selectedDoor = {name: ""};
+  $scope.names = {};
+  $scope.phones = {};
+  $scope.emails = {};
 
   $scope.showDefaultDoorPopup = false;
   $scope.showPaintDoorPopup = false;
@@ -174,6 +180,11 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
 
   $scope.map = { center: { latitude: 56.8212112, longitude: 60.6353681 }, zoom: 13, options: { scrollwheel: false } };
 
+  $scope.checkEmail = function(email){
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+
   $scope.changeType = function(type){
     $scope.selectedType = type;
   }
@@ -236,7 +247,31 @@ dveri.controller('MainCtrl', function ($scope, $sce) {
     return num;
   }
 
-  $scope.sendData = function(){
+  $scope.sendData = function(object, comment, id){
+    params = {}
+    params['comment'] = comment;
+    add_params = $location.search();
+    params['name'] = $scope.names[id];
+    params['email'] = $scope.emails[id];
+    params['phone'] = $scope.phones[id];
+    params['utm_content'] = add_params['utm_content'];
+    params['utm_campaign'] = add_params['utm_campaign'];
+    params['utm_source'] = add_params['utm_source'];
+    params['utm_term'] = add_params['utm_term'];
+    params['utm_medium'] = add_params['utm_medium'];
+    $http({
+      type: "POST",
+      dataType: 'json',
+      url: "ajax-proxy",
+      data: params
+    })
+    .done(function( msg ) {
+      console.log(msg);
+      $scope.names = {};
+      $scope.phones = {};
+      $scope.emails = {};
+    });
+    $scope.closeAllPopups();
     $scope.showThanks = true;
   }
 

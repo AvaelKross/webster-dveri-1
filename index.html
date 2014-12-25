@@ -10,6 +10,7 @@
   <script src="lib/jquery-1.10.2.min.js"></script>
   <script src="lib/angular.min.js"></script>
   <script src="lib/lodash.min.js"></script>
+  <script src="lib/angular-route.min.js"></script>
   <script src="lib/angular-google-maps.min.js"></script>
   <script src="angular-controllers.js"></script>
   <script src="script.js"></script>
@@ -73,10 +74,10 @@
         <div class="right-column cloudy">
           <div class="form">
             Отправьте заявку на<br>бесплатный вызов<br>замерщика
-            <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-            <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-            <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-            <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА" ng-click="sendData()"></input>
+            <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['main']"></input>
+            <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['main']"></input>
+            <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['main']"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА" ng-click="sendData(this,'главный экран-вызов замерщика', 'main')"></input>
 
             <div class="politic" ng-click="openPolitics()">Политика конфидециальности</div>
           </div>
@@ -126,10 +127,10 @@
         ЗАКАЖИТЕ БЕСПЛАТНЫЙ<BR>КАТАЛОГ ПО ПОЧТЕ
       </div>
       <div class="column lead1-form">
-        <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-        <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-        <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-        <input type="button" id="main-name" class="button button-yellow" value="ЗАКАЗАТЬ КАТАЛОГ"></input>
+        <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['catalog']"></input>
+        <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['catalog']"></input>
+        <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['catalog']"></input>
+        <input type="button" id="main-name" class="button button-yellow" value="ЗАКАЗАТЬ КАТАЛОГ" ng-click="sendData(this,'хочет каталог','catalog')"></input>
       </div>
     </div>
   </div>
@@ -180,9 +181,9 @@
         <div class="column" style="float: right;margin-top:25px;margin-right: 75px;">
           <div class="cloudy discount-form">
             Оставить заявку на участие в акции
-            <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-            <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-            <input type="button" id="main-name" class="button button-yellow" value="УЧАСТВОВАТЬ В АКЦИИ!"></input>
+            <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['discount']"></input>
+            <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['discount']"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="УЧАСТВОВАТЬ В АКЦИИ!" ng-click="sendData(this,'акция','discount')"></input>
           </div>
         </div>
       </div>
@@ -207,7 +208,7 @@
           </div>
           <div class="ad-text">
             <div ng-bind-html="showHtml(review.ad.text)" class="review-ad-text"></div>
-            <input type="button" class="button button-yellow" value="Хочу так же!" ng-click="openLeadPopup('кто-то хочет так же, как и '+review.pic.descr)">
+            <input type="button" class="button button-yellow" value="Хочу так же!" ng-click="openLeadPopup('хочет так же, как и '+review.pic.descr)">
           </div>
         </div>
       </div>
@@ -247,7 +248,7 @@
             <li>Универсальная высота проёма – 2,08м, при такой высоте дверная коробка всегда перекроется наличником.</li>
           </ul>
         </div>
-        <input type="button" class="button button-green" value="Заказать консультацию дизайнера" ng-click="openLeadPopup('консультация дизайнера')">
+        <input type="button" class="button button-green" value="Заказать консультацию монтажника" ng-click="openLeadPopup('консультация монтажника')">
       </div>
     </div>
     <div class="clear" style="clear: both;"></div>
@@ -339,10 +340,10 @@
         <div class="column" style="width: 235px; height: 250px;">
           <div class="door-form">
             Узнайте о наличии этой модели<br>на складе<br>в нужной Вам расцветке
-            <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-            <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-            <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-            <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!"></input>
+            <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['normal-door']"></input>
+            <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['normal-door']"></input>
+            <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['normal-door']"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!" ng-click="sendData(this,'в попапе выбрали '+selectedDoor.model,'normal-door')"></input>
           </div>
         </div>
         <div class="column" style="height: 133px; width: 540px">
@@ -394,10 +395,10 @@
         <div class="column" style="width: 235px; height: 250px;">
           <div class="door-form">
             Узнайте о наличии этой модели<br>на складе<br>в нужной Вам расцветке
-            <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-            <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-            <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-            <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!"></input>
+            <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['paint-door']"></input>
+            <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['paint-door']"></input>
+            <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['paint-door']"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!" ng-click="sendData(this,'в попапе выбрали'+selectedDoor.name,'paint-door')"></input>
           </div>
         </div>
         <div class="column" style="height: 133px; width: 540px">
@@ -419,10 +420,10 @@
   <div class="popup" id="door-default" ng-show="showLeadPopup">
     <div class="block lead-popup">
       <span ng-bind-html="showHtml(leadPopupText)"></span>
-      <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-      <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-      <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-      <input type="button" id="main-name" class="button button-yellow" value="{{leadPopupButtonText}}"></input>
+      <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['popup']"></input>
+      <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['popup']"></input>
+      <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['popup']"></input>
+      <input type="button" id="main-name" class="button button-yellow" value="{{leadPopupButtonText}}" ng-click="sendData(this, currentWhere, 'popup')"></input>
     </div>
     <div class="closer" ng-click="closeAllPopups()">
     </div>
@@ -431,10 +432,10 @@
   <div class="popup" id="door-default" ng-show="showInOneClick">
     <div class="block lead-popup">
       Вы выбрали дверь "{{selectedDoor.model}}!"
-      <input type="text" class="form-input" id="main-name" placeholder="Ваше имя"></input>
-      <input type="text" class="form-input" id="main-phone" placeholder="Ваш телефон"></input>
-      <input type="text" class="form-input" id="main-mail" placeholder="Ваш e-mail"></input>
-      <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА"></input>
+      <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['oneclick']"></input>
+      <input type="text" class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['oneclick']"></input>
+      <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['oneclick']"></input>
+      <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА" ng-click="sendData(this, 'хочет дверь '+selectedDoor.model, 'oneclick')"></input>
     </div>
     <div class="closer" ng-click="closeAllPopups()">
     </div>
