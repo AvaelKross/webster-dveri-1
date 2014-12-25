@@ -259,12 +259,7 @@ dveri.controller('MainCtrl', function ($scope, $sce, $location, $http) {
     params['utm_source'] = add_params['utm_source'];
     params['utm_term'] = add_params['utm_term'];
     params['utm_medium'] = add_params['utm_medium'];
-    $http({
-      type: "POST",
-      dataType: 'json',
-      url: "ajax-proxy",
-      data: params
-    })
+    $http.post("ajax-proxy", params)
     .then(function( msg ) {
       console.log(msg);
       $scope.names = {};
