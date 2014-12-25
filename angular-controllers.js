@@ -265,7 +265,7 @@ dveri.controller('MainCtrl', function ($scope, $sce, $location, $http) {
       url: "ajax-proxy",
       data: params
     })
-    .done(function( msg ) {
+    .then(function( msg ) {
       console.log(msg);
       $scope.names = {};
       $scope.phones = {};
