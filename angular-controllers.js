@@ -254,6 +254,20 @@ dveri.controller('MainCtrl', function ($scope, $sce, $location, $http) {
     params['name'] = $scope.names[id];
     params['email'] = $scope.emails[id];
     params['phone'] = $scope.phones[id];
+    if (params['name']==undefined || params['name'].trim() == "") {
+      alert('Вы не ввели имя!');
+      return;
+    }
+    if (params['phone']==undefined || params['phone'].trim() == "") {
+      alert('Вы не ввели телефон!');
+      return;
+    }
+    if (params['email']!=undefined && params['email'].trim() != ""){
+      if (!$scope.checkEmail(params['email'])) {
+        alert('Email введен некорректно!');
+        return;
+      }
+    }
     params['utm_content'] = add_params['utm_content'];
     params['utm_campaign'] = add_params['utm_campaign'];
     params['utm_source'] = add_params['utm_source'];
