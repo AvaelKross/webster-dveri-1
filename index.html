@@ -120,14 +120,10 @@
 
   <div id="lead1">
     <div class="wrapper columns">
-      <div class="column lead1-text" style="width: 310px; padding-top: 50px;">
-        ВЫБЕРИТЕ ДВЕРЬ<BR>ИЗ КАТАЛОГА
+      <div class="column lead1-text" style="width: 210px; padding-top: 50px;">
       </div>
-      <div class="column lead1-text" style="width: 130px; padding-top: 65px;">
-        ИЛИ
-      </div>
-      <div class="column lead1-text" style="width: 340px; padding-top: 50px;">
-        ЗАКАЖИТЕ БЕСПЛАТНЫЙ<BR>КАТАЛОГ ПО ПОЧТЕ
+      <div class="column lead1-text" style="width: 570px; padding-top: 35px; text-align:center;">
+        ЗАКАЖИТЕ БЕСПЛАТНЫЙ<BR>КАТАЛОГ ПО ПОЧТЕ<br><br>ИЛИ
       </div>
       <div class="column lead1-form">
         <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['catalog']"></input>
@@ -141,6 +137,7 @@
   <div id="catalog-anchor" style="position:relative; margin-top:-35px; height:35px"></div>
   <div id="catalog">
     <div class="wrapper">
+      <div class="title">Выберите свою дверь сейчас</div>
       <ul class="select-type">
         <li ng-repeat="type in types" ng-click="changeType(type.key)" ng-bind-html="showHtml(type.title)"></li>
       </ul>
