@@ -24,6 +24,15 @@ dveri.directive("scroll", function ($window) {
   };
 });
 
+dveri.directive('inputMask', ['$document', function($document) {
+  return {
+    link: function(scope, elm, attrs) {
+      var phonemask = "+7 (999) 999-99-99";
+      elm.mask(phonemask);
+    }
+  };
+}]);
+
 dveri.controller('MainCtrl', function ($scope, $sce, $location, $http) {
   $scope.selectedType = "shpon";
   $scope.selectedDoor = {name: ""};
