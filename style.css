@@ -704,9 +704,9 @@ input[type='button'] {
 
 .paint-door {
   text-align: left;
-  width: 740px;
+  width: 970px;
   height: 470px;
-  padding: 30px;
+  padding: 15px;
   padding-top: 20px;
   font-size: 15px;
 }
@@ -738,6 +738,19 @@ input[type='button'] {
   height: 87px;
   margin: 0px auto;
   margin-bottom: 3px;
+}
+
+.paint-door .color {
+  width: 125px;
+}
+
+.paint-door .color:nth-child(2n-1) {
+  margin-right: 5px;
+}
+
+.paint-door .color img{
+  height: 35px;
+  width: 125px;
 }
 
 .door-form {

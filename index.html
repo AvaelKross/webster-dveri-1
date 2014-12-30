@@ -317,7 +317,7 @@
       <div class="columns">
         <div class="column" style="width: 200px">
           <img ng-src="images/doors/{{selectedDoor.selected_cover_img}}" class="door-cover-img" />
-          <div style="font-size: 14px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
+          <div style="font-size: 13px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
           Цена с монтажом: <!--{{selectedDoor.price_mont}}-->{{makeMontPrice(selectedDoor)}} р.</div>
         </div>
         <div class="column info" style="width: 292px; height: 250px; padding-right: 10px;">
@@ -340,6 +340,7 @@
             </span>
           <br><br>
           Комплектующие: {{selectedDoor.set}}<br><br>
+          <span ng-if="selectedDoor.descr" ng-bind-html="showHtml(selectedDoor.descr)"></span>
         </div>
         <div class="column" style="width: 235px; height: 250px;">
           <div class="door-form">
@@ -370,12 +371,12 @@
       <div class="door-title">{{selectedDoor.type}} {{selectedDoor.brand}}, {{selectedDoor.model}}
       <span ng-if="selectedDoor.color">, цвет {{colors[selectedDoor.color].name}}</span></div>
       <div class="columns">
-        <div class="column" style="width: 200px">
+        <div class="column" style="width: 185px">
           <img ng-src="images/doors/{{selectedDoor.selected_cover_img}}" class="door-cover-img" />
-          <div style="font-size: 14px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
+          <div style="font-size: 13px;">Цена c комплектом: {{selectedDoor.price_set}} р.<br>
           Цена с монтажом: {{selectedDoor.price_mont}} р.</div>
         </div>
-        <div class="column info" style="width: 292px; height: 250px; padding-right: 10px;">
+        <div class="column info" style="width: 274px; height: 350px; padding-right: 10px;">
           Производитель: «{{selectedDoor.brand}}», {{selectedDoor.brand_city}}<br>
           <br>
           <span ng-if="selectedDoor.filling">
@@ -395,25 +396,32 @@
             </span>
           <br><br>
           Комплектующие: {{selectedDoor.set}}<br><br>
+          {{selectedDoor.descript}}<br>
         </div>
-        <div class="column" style="width: 235px; height: 250px;">
-          <div class="door-form">
+        <div class="column" style="width: 255px; height: 290px; margin-right: 10px;">
+          <div class="colors" ng-if="selectedDoor.colors.length > 0" style="margin-top:0px;">
+            <div class="color" ng-repeat="color in selectedDoor.colors">
+              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" ng-style="{'cursor': color.pic_url=='' ? 'defaut' : 'pointer'}" />
+              <span>{{colors[color.key].name}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="column" style="width: 235px; height: 290px;">
+          <div class="door-form" style="height: 264px;padding-top: 20px;">
             Узнайте о наличии этой модели<br>на складе<br>в нужной Вам расцветке
+            <div style="height:15px;"></div>
             <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['paint-door']"></input>
             <input type="text" input-mask class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['paint-door']"></input>
             <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['paint-door']"></input>
             <input type="button" id="main-name" class="button button-yellow" value="Перезвоните мне!" ng-click="sendData(this,'Запрос информации по двери '+selectedDoor.model,'paint-door')"></input>
           </div>
         </div>
-        <div class="column" style="height: 133px; width: 540px">
+        <div class="column" style="height: 50px; width: 540px">
           Варианты расцветок:<br>
           {{selectedDoor.paint}}
-          <div class="colors" ng-if="selectedDoor.colors.length > 0">
-            <div class="color" ng-repeat="color in selectedDoor.colors">
-              <img ng-src="images/colors/{{colors[color.key].pic_url}}" ng-click="changeColor(color)" ng-style="{'cursor': color.pic_url=='' ? 'defaut' : 'pointer'}" />
-              <span>{{colors[color.key].name}}</span>
-            </div>
-          </div>
+        </div>
+        <div class="column" style="height: 124px; width: 237px;margin-top:-26px;margin-left:7px;">
+          <img src="images/RAL.jpg"/>
         </div>
       </div>
     </div>
