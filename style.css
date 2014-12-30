@@ -173,9 +173,8 @@ input[type='button'] {
 
 .addresses {
   float: right;
-  width: 180px;
+  width: 174px;
   font-size: 18px;
-  margin-right: 20px;
 }
 
 .address {
@@ -189,6 +188,7 @@ input[type='button'] {
   margin-top:0px;
   height: 30px;
   margin-bottom: 0px;
+  border-bottom:2px solid #453122;
 }
 
 #somethinglikemenu {
@@ -208,12 +208,12 @@ input[type='button'] {
 }
 
 #menu ul{
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 #menu li {
-  width: 19.5%;
-  text-align: center;
+  width: 200px;
+  text-align: left;
   font-size: 20px;
   text-decoration: underline;
 }
@@ -232,7 +232,7 @@ input[type='button'] {
 }
 
 #main {
-  height: 685px;
+  height: 623px;
   background: url('images/bg-main.jpg') no-repeat;
   background-color: #eeebe4;
   background-position: center;
@@ -246,7 +246,7 @@ input[type='button'] {
   background-position: 0px 3px;
   padding-left: 35px;
   margin-left: 20px;
-  line-height: 26px;
+  line-height: 28px;
 }
 
 .kp {
@@ -254,23 +254,23 @@ input[type='button'] {
   color: #b93c32;
   font-weight: 700;
   font-size: 28px;
-  height: 52px;
-  text-align: center;
-}
-
-.under-kp {
-  font-size: 13px;
-  height: 55px;
-  margin-top: 7px;
-  padding-top: 15px;
+  height: 97px;
   text-align: left;
   padding-left: 20px;
 }
 
-.under-kp .bigger {
+.kp .little {
+  font-weight: 300;
+  font-size: 13px;
+  color: #000;
+  margin-top: 5px;
+}
+
+.kp .bigger {
+  font-weight: 300;
   font-size: 24px;
-  text-align: left;
   color: #b93c32;
+  margin-top: 5px;
 }
 
 .main-columns {
@@ -567,7 +567,7 @@ input[type='button'] {
   display: list-item;
   font-size: 14px;
   background: url('images/checkbox.png') no-repeat;
-  background-position: 0px 3px;
+  background-position: 0px 0px;
   padding-left: 35px;
   margin-left: 15px;
   margin-bottom: 10px;
