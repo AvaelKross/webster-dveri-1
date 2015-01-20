@@ -161,7 +161,7 @@ input[type='button'] {
 }
 
 .title {
-  font-size: 30px;
+  font-size: 28px;
   width: 100%;
   text-align: center;
   margin-top: 15px;
@@ -333,6 +333,7 @@ input[type='button'] {
 #lead1 {
   height: 365px;
   background-color: black;
+  margin-bottom: 20px;
 }
 
 .lead1-text {
@@ -362,13 +363,36 @@ input[type='button'] {
   margin-top:55px;
 }
 
+#lead-old {
+  height: 180px;
+  background-color: #453122;
+}
+
+.lead1-old-text {
+  height: 115px;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 26px;
+  color: #fff;
+}
+
+.lead1-old-form {
+  padding-top:4px;
+}
+
 #advances {
   height: 590px;
-  margin-top:70px;
+  margin-top:-30px;
+  margin-bottom: 100px;
 }
 
 #advances .column {
   width: 320px;
+}
+
+#advances .title {
+  margin-bottom: 30px;
+  color: red;
 }
 
 .advances-picture {
@@ -402,9 +426,13 @@ input[type='button'] {
 
 #opening-types {
   height: 550px;
-  background: url("images/opening-types.png") no-repeat;
-  background-position: center 120px;
   margin-top: 50px;
+}
+
+#opening-types .wrapper {
+  background: url("images/opening-types.png") no-repeat;
+  background-position: 180px 120px;
+  height:550px;
 }
 
 #opening-types .column {
