@@ -118,15 +118,95 @@
   <div id="lead1">
     <div class="wrapper columns">
       <div class="column lead1-text" style="width: 210px; padding-top: 50px;">
+        <img src="images/iphone.png" style="margin-top:-80px;">
       </div>
-      <div class="column lead1-text" style="width: 570px; padding-top: 35px; text-align:center;">
-        ЗАКАЖИТЕ БЕСПЛАТНЫЙ<BR>КАТАЛОГ ПО ПОЧТЕ<br><br>ИЛИ
+      <div class="column lead1-text" style="margin-left: 30px; width: 518px; padding-top: 35px; text-align:center;">
+        <div class="big-letters">
+          <span style="color: red">Получи iPhone 6*</span><br>за покупку дверей<br>до 28 февраля!
+        </div>
+        <div class="little-letters">*пожалуйста, узнавайте все подробности у менеджеров</div>
       </div>
-      <div class="column lead1-form">
+      <div class="column lead1-form" style="height:361px; margin-top:2px; width:242px; background-color:#858585; text-align: center; color: white; padding-top:0px;">
+        <div style="font-size: 18px; margin-top: 80px; margin-bottom: 15px; font-weight: 400;">Отправить заявку<br>на участие в акции<br></div>
         <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['catalog']"></input>
         <input type="text" input-mask class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['catalog']"></input>
-        <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['catalog']"></input>
-        <input type="button" id="main-name" class="button button-yellow" value="ЗАКАЗАТЬ КАТАЛОГ" ng-click="sendData(this,'Запрос каталога','catalog')"></input>
+        <input type="button" id="main-name" class="button button-red" value="ХОЧУ УЧАСТВОВАТЬ!" style="margin-top: 15px;" ng-click="sendData(this,'Запрос каталога','catalog')"></input>
+      </div>
+    </div>
+  </div>
+
+  <div id="advances">
+    <div class="wrapper columns">
+      <div class="column" class="advances-list" style="margin-left: 10px; width: 310px">
+        <div class="advance" style="height:175px;">
+          <div class="advance-icon" style="background-position: 0px -40px;height:35px;"></div>
+          <div class="advance-title">Открывание в любую сторону</div>
+          <div class="advance-subtitle">Слева на право и справа на лево. Определяется в момент установки.</div>
+        </div>
+        <div class="advance" style="height:220px;">
+          <div class="advance-icon" style="background-position: -40px -40px;height: 48px;"></div>
+          <div class="advance-title">Многослойный материал CPL (пластик низкого давления)</div>
+          <div class="advance-subtitle">Устойчив к царапинам, влаге и высоким температурам. Подходит для ванных комнат!</div>
+        </div>
+        <div class="advance">
+          <div class="advance-icon" style="background-position: -80px -40px;height:44px;"></div>
+          <div class="advance-title">Замок и петли установлены в заводских условиях</div>
+          <div class="advance-subtitle">– существенно влияет на качество установки<br>– снижает стоимость установки</div>
+        </div>
+      </div>
+      <div class="column advances-picture">
+        <img src="images/advances-door.jpg"/>
+      </div>
+      <div class="column" class="advances-list" style="margin-left:80px; width:280px;">
+        <div class="advance" style="height: 144px;">
+          <div class="advance-icon" style="background-position: 0px 0px;"></div>
+          <div class="advance-title">Тепло и тихо!</div>
+          <div class="advance-subtitle">Утеплитель - по всему периметру коробки.</div>
+        </div>
+        <div class="advance" style="height: 144px;">
+          <div class="advance-icon" style="background-position: -40px 0px;height: 36px;"></div>
+          <div class="advance-title">3х-сторонний фальц</div>
+          <div class="advance-subtitle">Закрывает все возможные зазоры между коробкой и дверью.</div>
+        </div>
+        <div class="advance" style="height: 144px;">
+          <div class="advance-icon" style="background-position: -80px 0px;height: 38px;"></div>
+          <div class="advance-title">Ударопрочная кромка</div>
+          <div class="advance-subtitle">Надежно защищает торцы. Прочное покрытие лаками UV отвержения.</div>
+        </div>
+        <div class="advance" style="height: 144px;">
+          <div class="advance-icon" style="background-position: -120px 0px;height: 38px;"></div>
+          <div class="advance-title">Экологичность материала</div>
+          <div class="advance-subtitle">Нет запаха и токсичных выделений. Безопасны для вашего дома.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="opening-types">
+    <div class="wrapper">
+      <div class="title">ТИПЫ ОТКРЫВАНИЯ ДВЕРЕЙ</div>
+      <div class="columns">
+        <div class="column" style="width: 60px; height: 10px;"></div>
+        <div class="column" style="padding-left: 30px; width: 240px;">
+          Стандартные<br>распашные двери
+        </div>
+        <div class="column">
+          Двустворчатые<br>ассиметричные двери
+        </div>
+        <div class="column">
+          Двустворчатые<br>симетричные двери
+        </div>
+        <div class="column" style="width: 80px; height: 10px;"></div>
+      </div>
+      <div style="width: 960px; text-align:center; font-size: 18px; font-weight: 400; margin-top:320px;">ОТКРЫВАНИЕ В ЛЮБУЮ СТОРОНУ:</div>
+      <div class="columns" style="margin-top: 10px;">
+        <div class="column" style="width: 330px; text-align: center;">
+          ПРАВОЕ ОТКРЫВАНИЕ
+        </div>
+        <div class="column" style="width: 330px;"></div>
+        <div class="column" style="width: 340px; text-align: center;">
+          ЛЕВОЕ ОТКРЫВАНИЕ
+        </div>
       </div>
     </div>
   </div>
@@ -134,7 +214,7 @@
   <div id="catalog-anchor" style="position:relative; margin-top:-35px; height:35px"></div>
   <div id="catalog">
     <div class="wrapper">
-      <div class="title">Выберите свою дверь сейчас</div>
+      <div class="title">Выберите самую популярную</div>
       <ul class="select-type">
         <li ng-repeat="type in types" ng-click="changeType(type.key)" ng-bind-html="showHtml(type.title)"></li>
       </ul>
