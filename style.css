@@ -145,8 +145,9 @@ input[type='button'] {
 }
 
 .cloudy {
-  background: rgba(255,255,255,0.88);
+  background-color: rgba(0,0,0,0.7);
   box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
+  color: #fefefe;
 }
 
 .columns .column {
@@ -199,9 +200,8 @@ input[type='button'] {
 #menu {
   padding-top: 0px;
   margin-top:0px;
-  height: 30px;
+  height: 32px;
   margin-bottom: 0px;
-  border-bottom:2px solid #453122;
 }
 
 #somethinglikemenu {
@@ -214,10 +214,14 @@ input[type='button'] {
 #menu.fixed {
   position: fixed;
   top:0px;
-  height: 35px;
+  height: 34px;
   width: 100%;
-  background-color: #fff;
   z-index: 2131223;
+  background-color: rgba(0,0,0,0);
+}
+
+#menu.fixed ul {
+  margin-top: 5px;
 }
 
 #menu ul{
@@ -225,23 +229,34 @@ input[type='button'] {
 }
 
 #menu li {
-  width: 200px;
-  text-align: left;
-  font-size: 20px;
-  text-decoration: underline;
+  width: 198px;
+  margin-right:2px;
+  padding-top: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: 21px;
+  background-color: #858585;
+}
+
+#menu li:last-child {
+  margin-left:2px;
+  margin-right:0px;
 }
 
 #menu li a:visited, #menu li a {
-  color: #000;
+  color: #fff;
+  text-decoration: none;
 }
 
 #menu li a:active, #menu li a:hover {
-  color: #b93c32;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .menu-phone {
   font-weight: 700;
   font-size: 21px !important;
+  background-color: #ed6623 !important;
 }
 
 #main {
@@ -255,7 +270,7 @@ input[type='button'] {
 #main li {
   display: list-item;
   font-size: 22px;
-  background: url('images/checkbox.png') no-repeat;
+  background: url('images/checkbox-white.png') no-repeat;
   background-position: 0px 3px;
   padding-left: 35px;
   margin-left: 20px;
@@ -264,40 +279,45 @@ input[type='button'] {
 
 .kp {
   padding-top: 20px;
-  color: #b93c32;
   font-weight: 700;
-  font-size: 28px;
-  height: 97px;
-  text-align: left;
-  padding-left: 20px;
+  font-size: 26px;
+  height: 67px;
+  text-align: center;
 }
 
 .kp .little {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
-  color: #000;
   margin-top: 5px;
 }
 
 .kp .bigger {
   font-weight: 300;
   font-size: 24px;
-  color: #b93c32;
   margin-top: 5px;
 }
 
+#main .form {
+  width: 210px;
+  float: right;
+  margin-right: 15px;
+}
+
 .main-columns {
-  margin-top: 20px;
+  margin-top: 175px;
 }
 
 .left-column {
-  width: 680px;
+  width: 450px;
   float: left;
 }
 
 .right-column {
-  width: 290px;
+  width: 450px;
   float: right;
+  background-image: url(images/catalog.png);
+  background-repeat: no-repeat;
+  background-position: 15px 60px;
 }
 
 .politic {

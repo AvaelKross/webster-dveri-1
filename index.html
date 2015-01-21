@@ -42,42 +42,40 @@
   <div id="menu" ng-class="{fixed:fixedMenu}">
     <div class="wrapper">
       <ul class="menu">
-        <li><a href="#catalog-anchor">Каталог дверей</a></li><li style="width:180px">
-        <a href="#lead1-anchor">Акции месяца</a></li><li style="width:220px">
-        <a href="#reviews-anchor">Отзывы клиентов</a></li><li>
-        <a href="#advices-anchor">Советы экспертов</a></li><li class="menu-phone" style="text-align: right;">
-        <a href="tel: +73432882684">+7 (343) 288-26-84</a></li>
+        <li><a href="#catalog-anchor">Каталог дверей</a></li><li>
+        <a href="#lead1-anchor">Акции месяца</a></li><li>
+        <a href="#reviews-anchor">Отзывы клиентов</a></li><li style="background-color: #ffd200;">
+        <a href="#advices-anchor" style="color: black !important;">Советы экспертов</a></li><li class="menu-phone">
+        <a href="tel: +73432882684" style="color: black !important;">+7 (343) 288-26-84</a></li>
     </div>
   </div>
 
   <div id="main">
     <div class="wrapper">
-      <div class="empty-space" style="height:30px;"></div>
+      <div class="empty-space" style="height:20px;"></div>
       <div class="cloudy kp">
-        Вы удивитесь, каким красивым станет Ваш интерьер за 15 500 руб!
+        Межкомнатные двери SYNERGY напрямую с фабрики по цене от 4610 руб!
         <div class="little">
-          Мы являемся официальными дилерами фабрик «Краснодеревщик», г. Челябинск, «Свобода», г. Рыбинск, «Вива-Порте», г. Светлый, «Акма», г. Санкт-Петербург.
-        </div>
-        <div class="bigger">
-          Поэтому мы продаём двери на 15% дешевле аналогов!
+          Мы являемся официальными дилерами фабрик «Краснодеревщик», «Свобода», «Вива-Порте», «Акма» и «SYNERGY»
         </div>
       </div>
 
       <div class="main-columns">
         <div class="left-column cloudy">
           <ul>
-            <li>Подберем для Вас лучшие двери</li>
-            <li>Произведём установку за 4 часа</li>
-            <li>Дадим гарантию на полотно и монтаж до 5 лет!</li>
+            <li style="list-decoration: none; margin-left: -16px; margin-top: -5px; margin-bottom: 5px; background: none; font-weight: 400;">Закажите двери не вставая с дивана!</li>
+            <li>Организуем бесплатный замер</li>
+            <li>Изготовим двери за 5 дней</li>
+            <li>Привезем и выполним монтаж</li>
           </ul>
         </div>
         <div class="right-column cloudy">
           <div class="form">
-            Отправьте заявку на<br>бесплатный вызов<br>замерщика
+            Отправьте заявку на<br>бесплатный каталог
             <input type="text" class="form-input form-name" id="main-name" placeholder="Ваше имя" ng-model="names['main']"></input>
-            <input type="text" input-mask class="form-input form-phone" id="main-phone" placeholder="Ваш телефон" ng-model="phones['main']"></input>
-            <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail" ng-model="emails['main']"></input>
-            <input type="button" id="main-name" class="button button-yellow" value="ВЫЗВАТЬ ЗАМЕРЩИКА" ng-click="sendData(this,'главный экран-вызов замерщика', 'main')"></input>
+            <input type="text" input-mask class="form-input form-phone" id="main-phone" placeholder="Ваш телефон*" ng-model="phones['main']"></input>
+            <input type="text" class="form-input form-mail" id="main-mail" placeholder="Ваш e-mail@" ng-model="emails['main']"></input>
+            <input type="button" id="main-name" class="button button-yellow" value="ПОЛУЧИТЬ КАТАЛОГ!" ng-click="sendData(this,'главный экран-вызов замерщика', 'main')"></input>
 
             <div class="politic" ng-click="openPolitics()">Политика конфидециальности</div>
           </div>
