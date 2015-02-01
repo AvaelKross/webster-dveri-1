@@ -5,6 +5,7 @@ head,body{
   width:100%;
   font-family: 'Helvetica Neue';
   font-weight: 300;
+  min-width: 1025px;
 }
 
 ul {
@@ -67,6 +68,7 @@ input[type='button'] {
 
 .button {
   font-size: 16px;
+  -webkit-appearance: none;
 }
 
 .button:focus {
@@ -216,7 +218,7 @@ input[type='button'] {
   top:0px;
   height: 34px;
   width: 100%;
-  z-index: 2131223;
+  z-index: 9999;
   background-color: rgba(0,0,0,0);
 }
 
